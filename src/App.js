@@ -55,7 +55,7 @@ function App() {
     } else {
       console.error('Geolocation is not supported in this browser.');
     }
-  }, []);
+  }, );
 
   useEffect(() => {
     if (window.innerWidth <= 760) {
