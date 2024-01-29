@@ -148,15 +148,6 @@ const AskQuestion = ({isDay}) => {
 
 
 
-
-
-
-  const handleEnter = (e) => {
-    if (e.key === "Enter") {
-      setQuestionBody(questionBody + "\n");
-    }
-  };
-
   useEffect(() => {
     if (editorRef.current) {
       editorRef.current.addEventListener('click', handleLinkClick);
