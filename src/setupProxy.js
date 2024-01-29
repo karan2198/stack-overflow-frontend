@@ -4,7 +4,7 @@ module.exports = function (app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://localhost:3000',
+      target: 'https://stack-overflow-backend-qf3u.onrender.com/',
       changeOrigin: true,
       allowedHosts: ['localhost','127.0.0.1'],
     })
