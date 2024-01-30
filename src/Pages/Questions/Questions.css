@@ -10,11 +10,39 @@
   padding-bottom: 20px;
   border-bottom: solid 1px rgba(0, 0, 0, 0.112);
 }
+
+.question-details-container.night h1{
+  color: white;
+}
+.question-body.night{
+  color: white;
+}
+.question-votes.night p{
+  color: white;
+}
 .question-details-container-2 {
   display: flex;
 }
+.post-ans-container.night h3{
+  color: white;
+}
+.ansBody.night{
+  color:white;
+}
+.postInfo.night p{
+  color: white;
+}
+.bottom.night{
+  color:white;
+}
+.postAns.night h3{
+  color: white;
+}
 .question-votes {
   padding: 5px 20px 5px 10px;
+}
+.ansInfo.night{
+  color:white;
 }
 .question-votes p {
   margin: 0%;
