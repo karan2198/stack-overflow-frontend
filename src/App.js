@@ -26,8 +26,8 @@ function App() {
         const sunset = data.sys.sunset;
 
         const isDaytime = currentTime > sunrise && currentTime < sunset;
-
-        setIsDay(prevIsDay => isDaytime);
+        const isBadWeather = data.weather.some(condition => ["mist", "fog"].includes(condition.description.toLowerCase()));
+        setIsDay(isDaytime && !isBadWeather);
         console.log('Current Time:', currentTime);
         console.log('Sunrise:', sunrise);
         console.log('Sunset:', sunset);
