@@ -18,7 +18,7 @@ const AllRoutes = ({ slideIn, handleSlideIn ,isDay}) => {
       <Route path="Auth" element={<Auth isDay={isDay}/>} />
       <Route path="AskQuestion" element={<AskQuestion isDay={isDay}/>} />
       <Route path="Questions" element={<Questions slideIn={slideIn} handleSlideIn={handleSlideIn} isDay={isDay}/>} />
-      <Route path="Questions/:id" element={<DisplayQuestion slideIn={slideIn} handleSlideIn={handleSlideIn} />} />
+      <Route path="Questions/:id" element={<DisplayQuestion slideIn={slideIn} handleSlideIn={handleSlideIn} isDay={isDay}/>} />
       <Route path="Tags" element={<Tags slideIn={slideIn} handleSlideIn={handleSlideIn} isDay={isDay}/>} />
       <Route path="Users" element={<Users slideIn={slideIn} handleSlideIn={handleSlideIn} isDay={isDay}/>} />
       <Route path="Users/:id" element={<UserProfile slideIn={slideIn} handleSlideIn={handleSlideIn} isDay={isDay}/>} />

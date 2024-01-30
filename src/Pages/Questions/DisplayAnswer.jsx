@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Avatar from "../../components/Avatar/Avatar";
 import { deleteAnswer } from "../../actions/question";
 
-const DisplayAnswer = ({ question, handleShare }) => {
+const DisplayAnswer = ({ question, handleShare ,isDay}) => {
   const User = useSelector((state) => state.currentUserReducer);
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const DisplayAnswer = ({ question, handleShare }) => {
     <div>
       {question.answer.map((ans) => (
         <div className="display-ans" key={ans._id}>
-          <p>{ans.answerBody}</p>
+          <p className={`ansBody ${isDay ? 'day' : 'night'}`}>{ans.answerBody}</p>
           <div className="question-actions-user">
             <div>
               <button type="button" onClick={handleShare}>
@@ -33,7 +33,7 @@ const DisplayAnswer = ({ question, handleShare }) => {
               )}
             </div>
             <div>
-              <p>answered {moment(ans.answeredOn).fromNow()}</p>
+              <p className={`ansInfo ${isDay ? 'day' : 'night'}`}>answered {moment(ans.answeredOn).fromNow()}</p>
               <Link
                 to={`/Users/${ans.userId}`}
                 className="user-link"

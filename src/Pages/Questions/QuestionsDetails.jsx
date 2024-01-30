@@ -15,7 +15,7 @@ import {
   voteQuestion,
 } from "../../actions/question";
 
-const QuestionsDetails = () => {
+const QuestionsDetails = ({isDay}) => {
   const { id } = useParams();
   const questionsList = useSelector((state) => state.questionsReducer);
 
@@ -24,7 +24,7 @@ const QuestionsDetails = () => {
   const dispatch = useDispatch();
   const User = useSelector((state) => state.currentUserReducer);
   const location = useLocation();
-  const url = "https://stack-overflow-frontend-six.vercel.app/";
+  const url = "http://localhost:3001";
 
   const handlePostAns = (e, answerLength) => {
     e.preventDefault();
@@ -76,7 +76,7 @@ const QuestionsDetails = () => {
   };
 
   return (
-    <div className="question-details-page">
+    <div className={`question-details-page ${isDay ? 'day' : 'night'}`}>
       {questionsList.data === null ? (
         <h1>Loading...</h1>
       ) : (
@@ -85,15 +85,15 @@ const QuestionsDetails = () => {
             .filter((question) => question._id === id)
             .map((question) => (
               <div key={question._id}>
-                <section className="question-details-container">
+                <section className={`question-details-container ${isDay ? 'day' : 'night'}`}>
                   <h1>{question.questionTitle}</h1>
-                  <div className="question-details-container-2">
-                    <div className="question-votes">
+                  <div className={`question-details-container-2 ${isDay ? 'day' : 'night'}`}>
+                    <div className={`question-votes ${isDay ? 'day' : 'night'}`}>
                       <img
                         src={upvote}
                         alt=""
                         width="18"
-                        className="votes-icon"
+                        className={`votes-icon ${isDay ? 'day' : 'night'}`}
                         onClick={handleUpVote}
                       />
                       <p>{question.upVote.length - question.downVote.length}</p>
@@ -101,14 +101,14 @@ const QuestionsDetails = () => {
                         src={downvote}
                         alt=""
                         width="18"
-                        className="votes-icon"
+                        className={`votes-icon ${isDay ? 'day' : 'night'}`}
                         onClick={handleDownVote}
                       />
                     </div>
                     <div style={{ width: "100%" }}>
                       {/* <p className="question-body">{question.questionBody}</p> */}
                       <div
-                        className="question-body"
+                        className={`question-body ${isDay ? 'day' : 'night'}`}
                         dangerouslySetInnerHTML={{ __html: question.questionBody }}
                       ></div>
 
@@ -128,7 +128,7 @@ const QuestionsDetails = () => {
                             </button>
                           )}
                         </div>
-                        <div>
+                        <div className={`postInfo ${isDay ? 'day' : 'night'}`}>
                           <p>asked {moment(question.askedOn).fromNow()}</p>
                           <Link
                             to={`/Users/${question.userId}`}
@@ -151,16 +151,17 @@ const QuestionsDetails = () => {
                   </div>
                 </section>
                 {question.noOfAnswers !== 0 && (
-                  <section>
+                  <section className={`postAns ${isDay ? 'day' : 'night'}`}>
                     <h3>{question.noOfAnswers} Answers</h3>
                     <DisplayAnswer
                       key={question._id}
                       question={question}
                       handleShare={handleShare}
+                      isDay={isDay}
                     />
                   </section>
                 )}
-                <section className="post-ans-container">
+                <section className={`post-ans-container ${isDay ? 'day' : 'night'}`}>
                   <h3>Your Answer</h3>
                   <form
                     onSubmit={(e) => {
@@ -182,7 +183,7 @@ const QuestionsDetails = () => {
                       value="Post Your Answer"
                     />
                   </form>
-                  <p>
+                  <p className={`bottom ${isDay ? 'day' : 'night'}`}>
                     Browse other Question tagged
                     {question.questionTags.map((tag) => (
                       <Link to="/Tags" key={tag} className="ans-tags">
