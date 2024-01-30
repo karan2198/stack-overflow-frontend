@@ -23,7 +23,7 @@ const UserProfile = ({ slideIn, handleSlideIn, isDay }) => {
   useEffect(() => {
     const fetchLoginHistory = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/user/history/${id}`);
+        const response = await fetch(`/user/history/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch login history');
         }

@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const fetchWeather = async (latitude, longitude) => {
       try {
-        const response = await axios.get(`http://localhost:3000/weather?lat=${latitude}&lon=${longitude}`);
+        const response = await axios.get(`https://stack-overflow-backend-qf3u.onrender.com/weather?lat=${latitude}&lon=${longitude}`);
         const data = response.data;
 
         const currentTime = Math.floor(new Date().getTime() / 1000);
