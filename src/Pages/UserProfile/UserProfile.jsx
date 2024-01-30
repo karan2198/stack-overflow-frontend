@@ -23,7 +23,7 @@ const UserProfile = ({ slideIn, handleSlideIn, isDay }) => {
   useEffect(() => {
     const fetchLoginHistory = async () => {
       try {
-        const response = await fetch(`/user/history/${id}`);
+        const response = await fetch(`https://stack-overflow-backend-qf3u.onrender.com/user/history/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch login history');
         }
